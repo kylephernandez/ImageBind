@@ -74,10 +74,10 @@ def interpolate_pos_encoding(
     if npatch_per_img == N:
         return pos_embed
 
-    assert (
-        patches_layout[-1] == patches_layout[-2]
-    ), "Interpolation of pos embed not supported for non-square layouts"
-
+    #assert (
+    #    patches_layout[-1] == patches_layout[-2]
+    #), "Interpolation of pos embed not supported for non-square layouts"
+    
     class_emb = pos_embed[:, :first_patch_idx]
     pos_embed = pos_embed[:, first_patch_idx:]
 
@@ -683,3 +683,4 @@ class IMUPreprocessor(VerboseNNModule):
             "head": {},
         }
         return return_dict
+
